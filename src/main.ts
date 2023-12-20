@@ -8,9 +8,15 @@ import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 //引入element-plus,css样式
 import 'element-plus/dist/index.css'
+//svg插件需要配置代码
+import 'virtual:svg-icons-register'
+//引入自定义插件对象:注册整个项目全局组件
+import gloalComponent from '@/components'
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
 app.use(ElementPlus, { locale: zhCn })
+//安装自定义插件
+app.use(gloalComponent)
 //将应用实例挂载到#app上
 app.mount('#app')
