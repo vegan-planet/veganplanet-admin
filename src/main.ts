@@ -12,6 +12,8 @@ import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
 //引入自定义插件对象:注册整个项目全局组件
 import gloalComponent from '@/components'
+//引入模版的全局样式
+import '@/styles/index.scss'
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
