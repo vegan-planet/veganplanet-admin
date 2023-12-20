@@ -19,6 +19,7 @@
     "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "element-plus": "^2.4.2",
     "vue": "^3.3.4"
   },
