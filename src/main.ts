@@ -14,11 +14,15 @@ import 'virtual:svg-icons-register'
 import gloalComponent from '@/components'
 //引入模版的全局样式
 import '@/styles/index.scss'
+//引入路由
+import router from './router'
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
 app.use(ElementPlus, { locale: zhCn })
 //安装自定义插件
 app.use(gloalComponent)
+//注册模板路由
+app.use(router)
 //将应用实例挂载到#app上
 app.mount('#app')
