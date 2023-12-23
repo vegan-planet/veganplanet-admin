@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 //引入element-plus插件和样式
 import ElementPlus from 'element-plus'
@@ -16,12 +15,17 @@ import gloalComponent from '@/components'
 import '@/styles/index.scss'
 //引入路由
 import router from './router'
+//引入pinia仓库
+import pinia from './store/pinia.ts'
+
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
 app.use(ElementPlus, { locale: zhCn })
 //安装自定义插件
 app.use(gloalComponent)
+//安装pinia仓库
+app.use(pinia)
 //注册模板路由
 app.use(router)
 //将应用实例挂载到#app上
