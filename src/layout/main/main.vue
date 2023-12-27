@@ -3,16 +3,15 @@
   <router-view v-slot="{ Component }">
     <transition name="fade">
       <!-- 渲染layout一级路由组件的子路由 -->
-      <component :is="Component"/>
+      <component :is="Component" />
     </transition>
   </router-view>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 <script lang="ts">
 export default {
-  name: 'Menu'
+  name: 'Menu',
 }
 </script>
 <style scoped>
@@ -22,7 +21,7 @@ export default {
 }
 
 .fade-enter-active {
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .fade-enter-to {
