@@ -4,12 +4,17 @@ import { defineStore } from 'pinia'
 import { reqLogin } from '@/api/user'
 //引入数据类型
 import type { loginFormData } from '@/api/user/type'
+//引入路由(常量路由)
+import { constantRoute } from '@/router/routes'
 //创建用户pinia小仓库
 let useUserStore = defineStore('User', {
   //piniac仓库存储数据地方
   state: () => {
     return {
+      //用户的token
       token: localStorage.getItem('token'),
+      //用户的路由
+      menuRoutes: constantRoute,
     }
   },
   //异步|逻辑的地方
