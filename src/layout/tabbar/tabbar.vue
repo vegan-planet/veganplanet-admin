@@ -11,11 +11,11 @@
 
 <script setup lang="ts">
 import Breadcrumb from './breadcrumb.vue'
-import Setting from './setting.vue';
+import Setting from './setting.vue'
 </script>
 <script lang="ts">
-export default{
-  name:"Tabbar"
+export default {
+  name: 'Tabbar',
 }
 </script>
 <style scoped lang="scss">
@@ -30,7 +30,6 @@ export default{
     display: flex;
     align-items: center;
     margin-left: 20px;
-
   }
 
   .tabbar_right {
