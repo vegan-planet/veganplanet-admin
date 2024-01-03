@@ -15,9 +15,9 @@ export const constantRoute = [
     name: 'Home',
     component: () => import('@/layout/layout.vue'),
     meta: {
-      title: '素食星球登首页',
+      title: '',
       hidden: false,
-      icon: 'HomeFilled',
+      icon: '',
     },
     redirect: '/home',
     children: [
@@ -28,6 +28,35 @@ export const constantRoute = [
           title: '首页',
           hidden: false,
           icon: 'HomeFilled',
+        },
+      },
+    ],
+  },
+  {
+    path: '/system',
+    name: 'system',
+    component: () => import('@/layout/layout.vue'),
+    meta: {
+      title: '系统管理',
+      icon: 'HomeFilled',
+    },
+    children: [
+      {
+        path: '/system/user',
+        component: () => import('@/views/system/user/user.vue'),
+        meta: {
+          title: '用户管理',
+          hidden: false,
+          icon: 'HomeFilled',
+        },
+      },
+      {
+        path: '/system/role',
+        component: () => import('@/views/system/role/role.vue'),
+        name: 'Role',
+        meta: {
+          title: '角色管理',
+          icon: 'UserFilled',
         },
       },
     ],
