@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+//引入用户相关的仓库
+import useUserStore from '@/store/modules/user'
 // 创建axios实例
 let request = axios.create({
   //打印请求地址
@@ -10,6 +12,11 @@ let request = axios.create({
 // request请求拦截器
 request.interceptors.request.use((config) => {
   // 请求前的处理
+  //获取用户相关的小仓库:获取仓库内部token,登录成功以后携带给服务器
+  const userStore = useUserStore()
+  if (userStore.token) {
+    config.headers.token = userStore.token
+  }
   return config
 })
 
