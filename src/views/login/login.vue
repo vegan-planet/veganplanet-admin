@@ -60,8 +60,8 @@ const login = async () => {
   await useStore.userLogin(loginForm).then(
     (res) => {
       //判断登录的时候,路由路径当中是否有query参数，如果有就往query参数挑战，没有跳转到首页
-      let redirect: any = $route.query.redirect;
-      $router.push({ path: redirect || '/' });
+      let redirect: any = $route.query.redirect
+      $router.push({ path: redirect || '/' })
       ElNotification({
         type: 'success',
         message: '登录成功',

@@ -1,7 +1,7 @@
 //创建用户相关的pinia仓库
 import { defineStore } from 'pinia'
 //引入用户接口
-import {reqLogin, reqUserInfo} from '@/api/user'
+import { reqLogin, reqUserInfo } from '@/api/user'
 //引入数据类型
 import type { loginFormData } from '@/api/user/type'
 //引入路由(常量路由)
@@ -38,7 +38,7 @@ let useUserStore = defineStore('User', {
     //获取用户信息方法
     async getUserInfo() {
       //发送请求获取用户信息
-      const userInfo =(await reqUserInfo()).data;
+      const userInfo = (await reqUserInfo()).data
       //如果获取用户信息成功，存储一下用户信息
       if (userInfo.code == 200) {
         this.username = userInfo.data.checkUser.username
@@ -49,14 +49,12 @@ let useUserStore = defineStore('User', {
     },
     //退出登录
     async userLogout() {
-
       //退出登录
       this.token = ''
       this.username = ''
       this.avatar = ''
       localStorage.removeItem('token')
       return 'ok'
-
     },
   },
   getters: {},

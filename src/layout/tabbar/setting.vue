@@ -13,7 +13,7 @@
   ></el-button>
   <el-button size="small" icon="Setting" circle></el-button>
   <img
-    :src=userStore.avatar
+    :src="userStore.avatar"
     style="width: 24px; height: 24px; margin: 0px 10px; border-radius: 50%"
   />
   <!-- 下拉菜单 -->
@@ -33,17 +33,17 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router'
 //获取骨架的小仓库
 import useLayOutSettingStore from '@/store/modules/setting'
 let layoutSettingStore = useLayOutSettingStore()
 //获取用户相关的小仓库
-import useUserStore from '@/store/modules/user';
-let userStore = useUserStore();
+import useUserStore from '@/store/modules/user'
+let userStore = useUserStore()
 //获取路由器对象
-let $router = useRouter();
+let $router = useRouter()
 //获取路由对向
-let $route = useRoute();
+let $route = useRoute()
 //刷新按钮点击回调
 const updateRefsh = () => {
   layoutSettingStore.refsh = !layoutSettingStore.refsh
@@ -64,10 +64,9 @@ const fullScreen = () => {
 }
 //退出登录点击回调
 const logout = async () => {
-  await userStore.userLogout();
+  await userStore.userLogout()
   //跳转到登录页面
-  $router.push({ path: '/login', query: { redirect: $route.path } });
-
+  $router.push({ path: '/login', query: { redirect: $route.path } })
 }
 </script>
 
