@@ -18,7 +18,6 @@ import router from './router'
 //引入pinia仓库
 import pinia from './store/pinia.ts'
 
-
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
