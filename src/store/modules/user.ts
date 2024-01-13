@@ -43,6 +43,7 @@ let useUserStore = defineStore('User', {
       if (userInfo.code == 200) {
         this.username = userInfo.data.checkUser.username
         this.avatar = userInfo.data.checkUser.avatar
+        return 'ok'
       } else {
         return Promise.reject(new Error(userInfo.data.message))
       }

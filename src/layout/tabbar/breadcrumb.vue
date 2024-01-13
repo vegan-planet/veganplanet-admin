@@ -13,9 +13,9 @@
       :to="item.path"
     >
       <!-- 图标 -->
-      <el-icon>
+<!--      <el-icon>
         <component :is="item.meta.icon"></component>
-      </el-icon>
+      </el-icon>-->
       <!-- 面包屑展示匹配路由的标题 -->
       <span>{{ item.meta.title }}</span>
     </el-breadcrumb-item>

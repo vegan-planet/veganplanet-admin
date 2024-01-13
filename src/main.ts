@@ -18,6 +18,7 @@ import router from './router'
 //引入pinia仓库
 import pinia from './store/pinia.ts'
 
+
 //获取应用实例对象
 const app = createApp(App)
 //安装element-plus插件  一定要在use(router)之前挂载
@@ -28,5 +29,7 @@ app.use(gloalComponent)
 app.use(pinia)
 //注册模板路由
 app.use(router)
+//引入路由鉴权文件
+import './permisstion'
 //将应用实例挂载到#app上
 app.mount('#app')
