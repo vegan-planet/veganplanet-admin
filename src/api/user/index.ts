@@ -7,8 +7,7 @@ enum API {
 }
 
 //登录接口
-export const reqLogin = (data:any) =>
+export const reqLogin = (data: any) =>
   request.post<any, any>(API.LOGIN_URL, data)
 //获取用户信息
-export const reqUserInfo = () =>
-  request.post<any, any>(API.USERINFO_URL,{})
+export const reqUserInfo = () => request.post<any, any>(API.USERINFO_URL, {})

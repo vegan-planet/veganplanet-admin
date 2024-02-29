@@ -23,7 +23,7 @@ let useUserStore = defineStore('User', {
   actions: {
     //用户登录的方法
     async userLogin(data: loginFormData) {
-      const result = (await reqLogin(data))
+      const result = await reqLogin(data)
       if (result.data.code == 20000) {
         console.log(result.data.data)
         //登录成功
@@ -39,7 +39,7 @@ let useUserStore = defineStore('User', {
     //获取用户信息方法
     async getUserInfo() {
       //发送请求获取用户信息
-      const userInfo = (await reqUserInfo())
+      const userInfo = await reqUserInfo()
       console.log(userInfo.data)
       //如果获取用户信息成功，存储一下用户信息
       if (userInfo.data.code == 20000) {
