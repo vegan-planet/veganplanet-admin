@@ -15,7 +15,7 @@ let useUserStore = defineStore('User', {
       token: localStorage.getItem('token'),
       //用户的路由
       menuRoutes: constantRoute,
-      username: '',
+      userName: '',
       avatar: '',
     }
   },
@@ -23,13 +23,14 @@ let useUserStore = defineStore('User', {
   actions: {
     //用户登录的方法
     async userLogin(data: loginFormData) {
-      const result = (await reqLogin(data)).data
-      if (result.code == 200) {
+      const result = (await reqLogin(data))
+      if (result.data.code == 20000) {
+        console.log(result.data.data)
         //登录成功
         //1.存储token
-        this.token = result.data.token
+        this.token = result.data.data
         //2.存储token到本地存储
-        localStorage.setItem('token', result.data.token)
+        localStorage.setItem('token', result.data.data)
         return 'ok'
       } else {
         return Promise.reject(new Error(result.data.message))
@@ -38,11 +39,12 @@ let useUserStore = defineStore('User', {
     //获取用户信息方法
     async getUserInfo() {
       //发送请求获取用户信息
-      const userInfo = (await reqUserInfo()).data
+      const userInfo = (await reqUserInfo())
+      console.log(userInfo.data)
       //如果获取用户信息成功，存储一下用户信息
-      if (userInfo.code == 200) {
-        this.username = userInfo.data.checkUser.username
-        this.avatar = userInfo.data.checkUser.avatar
+      if (userInfo.data.code == 20000) {
+        this.userName = userInfo.data.data.userName
+        this.avatar = userInfo.data.data.avatar
         return 'ok'
       } else {
         return Promise.reject(new Error(userInfo.data.message))
@@ -52,7 +54,7 @@ let useUserStore = defineStore('User', {
     async userLogout() {
       //退出登录
       this.token = ''
-      this.username = ''
+      this.userName = ''
       this.avatar = ''
       localStorage.removeItem('token')
       return 'ok'

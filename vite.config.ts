@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 //引入svg插件
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 //mock插件提供方法
 import { viteMockServe } from 'vite-plugin-mock'
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command,mode }) => {
+  //获取环境变量
+    let env = loadEnv(mode, process.cwd());
   return {
     plugins: [
       vue(),
@@ -34,5 +36,18 @@ export default defineConfig(({ command }) => {
         },
       },
     },
+    //配置代理跨域
+    server: {
+        proxy: {
+        "/api": {
+          //获取数据的服务器地址设置
+          target: "http://192.168.1.118:10000",
+          //需要代理跨域
+          changeOrigin: true,
+          //路径重写
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        }
+      }
+    }
   }
 })

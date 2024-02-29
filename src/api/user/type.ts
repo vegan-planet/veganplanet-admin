@@ -1,7 +1,7 @@
 //定义用户相关数据的ts类型
 //用户登录接口携带参数的ts类型
 export interface loginFormData {
-  username: string
+  userName: string
   password: string
 }
 

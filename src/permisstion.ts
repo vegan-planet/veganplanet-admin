@@ -22,7 +22,7 @@ router.beforeEach(async (to, from, next) => {
   //获取token,去判断用户登录、还是未登录
   const token = userStore.token
   //获取用户名字
-  const username = userStore.username
+  const userName = userStore.userName
   console.log(token)
   //用户登录判断
   if (token) {
@@ -32,7 +32,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
       //登录成功访问其余六个路由(登录排除)
       //有用户信息
-      if (username) {
+      if (userName) {
         //放行
         next()
       } else {
@@ -44,6 +44,7 @@ router.beforeEach(async (to, from, next) => {
           //万一:刷新的时候是异步路由,有可能获取到用户信息、异步路由还没有加载完毕,出现空白的效果
           next({ ...to })
         } catch (error) {
+          console.log("aaaaaaaa")
           //token过期:获取不到用户信息了
           //用户手动修改本地存储token
           //退出登录->用户相关的数据清空

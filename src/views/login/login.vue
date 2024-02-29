@@ -7,10 +7,10 @@
         <el-form class="login_form">
           <h1>Hello</h1>
           <h2>欢迎来到素食星球</h2>
-          <el-form-item prop="username">
+          <el-form-item prop="userName">
             <el-input
               :prefix-icon="User"
-              v-model="loginForm.username"
+              v-model="loginForm.userName"
             ></el-input>
           </el-form-item>
           <el-form-item prop="password">
@@ -52,7 +52,7 @@ let useStore = useUserStore()
 //定义变量控制按钮加载效果
 let loading = ref(false)
 //收集账号与密码的数据
-let loginForm = reactive({ username: 'admin', password: '111111' })
+let loginForm = reactive({ userName: 'admin', password: '123456' })
 //登录按钮回调
 const login = async () => {
   //加载效果:开始加载
